@@ -38,7 +38,13 @@ function startTest() {
     var startTime = 0;
     var endTime = 0;
     window.addEventListener('keydown', function (e) {
-        if (complete && e.key == "Enter") this.location.reload();
+        if (complete && e.key != "Enter") {
+            return;
+        }
+        else if (complete && e.key == "Enter") {
+            this.location.reload();
+            return;
+        }
         if (started == false && e.key.length == 1) {
             started = true;
             console.log("Started");
@@ -97,3 +103,6 @@ function startTest() {
     // test.innerHTML = reds + "Test" + rede;
 }
 
+function reload() {
+    this.location.reload();
+}
